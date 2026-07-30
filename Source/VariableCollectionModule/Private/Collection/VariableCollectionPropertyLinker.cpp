@@ -74,19 +74,19 @@ void UVariableCollectionPropertyLinker::ApplyProperty()
 
 TArray<FName> UVariableCollectionPropertyLinker::GetPropertyNames() const
 {
-	return VariableCollection::Utils::GetPropertyNames([this](const FProperty* Property)
+	return VariableCollection::Utils::GetPropertyNames([this](const FProperty* InProperty)
 	{
-		return IsValidPropertyType(Property);
+		return IsValidPropertyType(InProperty);
 	});
 }
 
 void UVariableCollectionPropertyLinker::SetFromVariableBinding(const FName& Binding)
 {
 	VariableCollection::Utils::GetVariableCollectionProperty(Binding, OwnerCollectionAsset, Property,
-		[this](const FProperty* Property)
+		[this](const FProperty* InProperty)
 	{
-		return IsValidPropertyType(Property);
-	});	
+		return IsValidPropertyType(InProperty);
+	});
 }
 
 //----------------------------------------------------------------------//
